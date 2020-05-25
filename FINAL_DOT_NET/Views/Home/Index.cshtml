@@ -1,0 +1,20 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    @if (SignInManager.IsSignedIn(User))
+    {
+        <h2 style="color: cornflowerblue"> @User.Identity.Name!</h2>
+        <h2 ></h2>
+        <h2 ></h2>
+    }
+    else { 
+<h2 >Please,<a class="nav-link" style="color:red" asp-area="Identity" asp-page="/Account/Register"> SignIn</a> or <a class="nav-link "style="color:red" asp-area="Identity" asp-page="/Account/Login">SignUp</a>!!!</h2>
+    }
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
